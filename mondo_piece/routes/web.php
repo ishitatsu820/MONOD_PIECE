@@ -19,5 +19,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/music/new', 'MusicsController@new')->name('musics.new');
-Route::post('/music', 'MusicsController@create')->name('musics.create');
+Route::group(['middleware' => 'auth'], function() {
+    Route::get('/music/new', 'MusicsController@new')->name('musics.new');
+    Route::post('/music', 'MusicsController@create')->name('musics.create');
+
+});
