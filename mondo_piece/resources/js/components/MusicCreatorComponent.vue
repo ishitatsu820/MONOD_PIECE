@@ -19,24 +19,41 @@
     </div>
     <div class="form-group row mb-0">
         <div class="col-md-8 offset-md-4">
-          <button type="submit" class="btn btn-primary">新規登録</button>
+          <button class="btn btn-primary" @click="createMusic">新規登録</button>
         </div>
       </div>
   </div>
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   name: 'MusicCreatorComponent',
   data: function() {
     return {
-      title: '',
-      artist: '',
-      lyric: '',
+      title: "",
+      artist: "",
+      lyric: "",
     }
   },
-  methods: {
+  creted() {
     
+  }, 
+  methods: {
+    createMusic() {
+      var data = {
+        'title': this.title,
+        'artist': this.artist,
+        'lyric': this.lyric,
+      };
+      axios.post('/music',data)
+      .then(
+        console.log('POSTしました！')
+      )     
+      .catch(error => {
+          console.log(error);
+      });;
+    }
   },
 }
 </script>

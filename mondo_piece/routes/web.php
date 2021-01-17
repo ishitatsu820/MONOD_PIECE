@@ -19,4 +19,5 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/new', 'MusicsController@new')->name('musics.new');
+Route::get('/music/new', 'MusicsController@new')->name('musics.new');
+Route::post('/music', 'MusicsController@create')->name('musics.create');
