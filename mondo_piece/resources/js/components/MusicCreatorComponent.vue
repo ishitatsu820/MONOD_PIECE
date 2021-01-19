@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+
 export default {
   name: 'MusicCreatorComponent',
   data: function() {
@@ -46,7 +46,7 @@ export default {
         'artist': this.artist,
         'lyric': this.lyric,
       };
-      axios.post('/music',data)
+      axios.post('/music/create',data)
       .then(
         console.log('POSTしました！')
       )     

@@ -1,17 +1,16 @@
 <template>
-  <music-component></music-component>
+  <music-app-component></music-app-component>
 </template>
 
 <script>
 import ExampleComponent from "./components/ExampleComponent";
-import MusicComponent from "./components/MusicComponent";
+import MusicAppComponent from "./components/MusicAppComponent";
 import axios from "axios";
 
 export default {
   name: "app",
   components: {
-    ExampleComponent,
-    MusicComponent
+    MusicAppComponent
   }
 }
 </script>

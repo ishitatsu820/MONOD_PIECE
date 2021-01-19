@@ -20,7 +20,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => 'auth'], function() {
-    Route::get('/music/new', 'MusicsController@new')->name('musics.new');
-    Route::post('/music', 'MusicsController@create')->name('musics.create');
+    Route::get('/music', 'MusicsController@music')->name('musics.music');
+    Route::post('/music/create', 'MusicsController@create')->name('musics.create');
+    Route::get('/music/list', 'MusicsController@getList')->name('musics.getList');
 
 });
