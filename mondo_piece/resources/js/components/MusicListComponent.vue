@@ -1,24 +1,21 @@
 /* eslint-disable no-console */
 <template>
   <div class="list-group">
-      <music-component 
-        v-for="music in musics" 
-        :key="music.id"
-        :id="music.id"
-        :title="music.title"
-        ></music-component>
+      <a href="" class="list-group-item list-group-item-action flex-colum align-items-start" v-for="music in musics" :key="music.id">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">{{ music.title }}</h5><small>{{ music.artist }}</small>
+         
+        </div>
+      </a>
   </div>
 </template>
 
 <script>
 import Axios from 'axios';
-import MusicComponent from "./MusicComponent";
+
 
 export default {
   name: 'MisicListComponent',
-  components: {
-    MusicComponent
-  },
   data: function() {
     return {
       musics: [
