@@ -1,19 +1,109 @@
 <template>
   <div>
-    <music-creator-component></music-creator-component>
-    <music-list-component></music-list-component>
+    <div class="form-group row">
+      <label for="title" class="col-md-4 col-form-label text-md-right">曲名</label>
+      <div class="col-md-6">
+        <input type="text" class="form-control" name="title" id="title" value="" autocomplete="title" autofocus v-model="postMusicTitle">
+      </div>
+      
+      <label for="artist" class="col-md-4 col-form-label text-md-right">アーティスト名</label>
+      <div class="col-md-6">
+        <input type="text" class="form-control" name="artist" id="artist" value="" autocomplete="artist" autofocus v-model="postMusicArtist">
+      </div>
+
+      <label for="lyric" class="col-md-4 col-form-label text-md-right">歌詞</label>
+      <div class="col-md-6">
+        <textarea name="lyric" id="lyric" cols="30" rows="10" class="form-control" autofocus v-model="postMusicLyric"></textarea>
+      </div>
+      
+    </div>
+    <div class="form-group row mb-0">
+      <div class="col-md-8 offset-md-4">
+        <button class="btn btn-primary" @click="createMusic">新規登録</button>
+      </div>
+    </div>
+    <div class="list-group">
+      <a href="" class="list-group-item list-group-item-action flex-colum align-items-start" v-for="music in musics" :key="music.id">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">{{ music.title }}</h5><small>{{ music.artist }}</small>
+         
+        </div>
+      </a>
+    </div>
+
   </div>
 </template>
 
 <script>
-import MusicCreatorComponent from "./MusicCreatorComponent";
-import MusicListComponent from "./MusicListComponent";
+import Axios from 'axios';
+
 
 export default {
   name: 'MusicAppComponent',
-  components : {
-    MusicCreatorComponent,
-    MusicListComponent,
+  data: function() {
+    return {
+      musics: [
+        {
+          id:"",
+          title:"",
+          artist:"",
+          lyric:"",
+          user_id:"",
+          created_at:"",
+          updated_at:""
+        },
+      ],
+      postMusicTitle:"",
+      postMusicArtist:"",
+      postMusicLyric:""
+      
+    }
+  },
+  created() {
+    this.getMusicList();
+    console.log('created');
+  },
+  methods: {
+    createMusic() {
+      var data = {
+        'title': this.postMusicTitle,
+        'artist': this.postMusicArtist,
+        'lyric': this.postMusicLyric,
+      };
+      axios.post('/music/create',data)
+      .then(
+        console.log('POSTしました！')
+      )     
+      .catch(error => {
+          console.log(error);
+      });
+      this.postMusicArtist = '',
+      this.postMusicTitle = '',
+      this.postMusicLyric = '',
+      this.getMusicList();
+    },
+    getMusicList() {
+      let self = this;
+      Axios.get('/music/list')
+        
+      //   this.musics.id = res.data.id;
+      //   this.musics.title = res.data.title;
+      //   this.musics.artist = res.data.artist;
+      //   this.musics.lyric = res.data.lyric;
+      
+      .then(function (response) {
+        // handle success
+        let data = response.data;
+        
+        self.musics = data;
+        console.log(response);
+        // this.$set(this.musics, 'data[0].title', response.data[1].title)
+
+      })      
+      .catch(function(error){
+        console.log(error);
+      })
+    }
   }
 }
 </script>
