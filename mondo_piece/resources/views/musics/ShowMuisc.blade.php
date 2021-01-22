@@ -7,11 +7,11 @@
             <div class="card">
                 <div class="card-header">{{ __('MUSIC Detail') }}</div>
                 <div class="card-body">
-                  <h1>{{ $music->title}}</h1>
-                  <p>{{ $music->artist}}</p>
-                  <p>{{ $music->lyric}}</p>
-                  <p>{{ $music->created_at}}</p>
-
+                    <h1>{{ $music->title }}</h1>
+                    <p>{{ $music->artist }}</p>
+                    <p>{{ $music->lyric }}</p>
+                    <p>{{ $music->created_at }}</p>
+                    <div id="app-comment"></div>
                   
                 </div>
             </div>

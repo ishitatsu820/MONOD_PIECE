@@ -1,7 +1,6 @@
 import Vue from "vue";
-import App from "./App.vue";
-
-
+import MusicAppComponent from "./components/MusicAppComponent";
+import CommentComponent from "./components/CommentComponent";
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -32,10 +31,10 @@ require('./bootstrap');
  */
 
 new Vue({
-    render : h => h(App)
-}).$mount('#app-example');
+    render : h => h(MusicAppComponent)
+}).$mount('#app-music');
 
 
-// new Vue({
-//     el: '#music',
-// })
+new Vue({
+    render : h=> h(CommentComponent)
+}).$mount('#app-comment');

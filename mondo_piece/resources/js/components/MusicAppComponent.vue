@@ -86,12 +86,12 @@ export default {
       })
     },
     createMusic() {
-      var data = {
+      let postData = {
         'title': this.postMusicTitle,
         'artist': this.postMusicArtist,
         'lyric': this.postMusicLyric,
       };
-      axios.post('/music/create',data)
+      Axios.post('/music/create',postData)
       .then(
         console.log('新規データPOSTしました！')
       )     
