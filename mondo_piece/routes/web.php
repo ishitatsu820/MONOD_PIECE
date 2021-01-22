@@ -25,4 +25,6 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/music/list', 'MusicsController@GetList')->name('musics.GetList');
     Route::get('/music/{id}', 'MusicsController@ShowMusic')->name('musics.ShowMuisc');
 
+    Route::post('/comment', 'CommentsController@create');
+
 });

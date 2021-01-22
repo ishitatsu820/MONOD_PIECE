@@ -10,9 +10,10 @@
                     <h1>{{ $music->title }}</h1>
                     <p>{{ $music->artist }}</p>
                     <p>{{ $music->lyric }}</p>
-                    <p>{{ $music->created_at }}</p>
-                    <div id="app-comment"></div>
-                  
+                    <p>{{ $music->id }}</p>
+                    <div id="app-comment">
+                        <comment-component :id="12"></comment-component>
+                    </div>
                 </div>
             </div>
         </div>

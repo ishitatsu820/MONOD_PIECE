@@ -1937,12 +1937,13 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'CommentComponent',
+  props: ['id'],
   data: function data() {
     return {
       postComment: "",
       comments: [{
-        id: '',
-        comment: ''
+        id: "",
+        comment: ""
       }]
     };
   },
@@ -1958,9 +1959,11 @@ __webpack_require__.r(__webpack_exports__);
     },
     createComment: function createComment() {
       var postData = {
+        'post_id': this.id,
         'comment': this.postComment
       };
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('comment.create', postComment).then(console.log('新規コメントPOSTしました！'))["catch"](function (error) {
+      console.log(postData);
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/comment/create', postData).then(console.log('新規コメントPOSTしました！'))["catch"](function (error) {
         console.log(error);
       });
       this.postComment = '';
@@ -50746,21 +50749,18 @@ module.exports = function(module) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_MusicAppComponent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/MusicAppComponent */ "./resources/js/components/MusicAppComponent.vue");
-/* harmony import */ var _components_CommentComponent__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/CommentComponent */ "./resources/js/components/CommentComponent.vue");
-
-
+/* harmony import */ var _components_MusicAppComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/MusicAppComponent */ "./resources/js/components/MusicAppComponent.vue");
+/* harmony import */ var _components_CommentComponent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/CommentComponent */ "./resources/js/components/CommentComponent.vue");
+// import Vue from "vue";
 
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // window.Vue = require('vue');
-
+window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -50779,16 +50779,19 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // window
  */
 
 
-new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
-  render: function render(h) {
-    return h(_components_MusicAppComponent__WEBPACK_IMPORTED_MODULE_1__["default"]);
+
+new Vue({
+  el: '#app-music',
+  components: {
+    MusicAppComponent: _components_MusicAppComponent__WEBPACK_IMPORTED_MODULE_0__["default"]
   }
-}).$mount('#app-music');
-new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
-  render: function render(h) {
-    return h(_components_CommentComponent__WEBPACK_IMPORTED_MODULE_2__["default"]);
+});
+new Vue({
+  el: '#app-comment',
+  components: {
+    CommentComponent: _components_CommentComponent__WEBPACK_IMPORTED_MODULE_1__["default"]
   }
-}).$mount('#app-comment');
+});
 
 /***/ }),
 

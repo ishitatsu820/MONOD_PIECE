@@ -26,18 +26,20 @@
 import Axios from 'axios';
 export default {
   name: 'CommentComponent',
+  props: ['id'],
   data: function() {
     return {
       postComment:"",
       comments: [
         {
-          id:'',
-          comment:''
+          id:"",
+          comment:""
         }
       ]
     }
   },
   created() {
+    
 
   },
   methods: {
@@ -54,9 +56,12 @@ export default {
 
     createComment(){
       let postData = {
+        'post_id': this.id,
         'comment': this.postComment,
       };
-      Axios.post('comment.create', postComment)
+      console.log(postData);
+     
+      Axios.post('/comment/create', postData)
       .then(
        console.log('新規コメントPOSTしました！')
       )

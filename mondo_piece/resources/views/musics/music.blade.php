@@ -8,9 +8,7 @@
                 <div class="card-header">{{ __('MUSICS') }}</div>
                 <div class="card-body">
                   <div id="app-music">
-                   
-                  
-
+                    <music-app-component></music-app-component>
                   </div>
                 </div>
             </div>
