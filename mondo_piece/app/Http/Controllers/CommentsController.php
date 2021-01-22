@@ -4,6 +4,7 @@ namespace MONDO_PIECE\Http\Controllers;
 
 use MONDO_PIECE\Comment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CommentsController extends Controller
 {
@@ -13,5 +14,7 @@ class CommentsController extends Controller
         $comment->post_id = $request->post_id;
         $comment->user_id = Auth::id();
 
+        $comment->save();
+        
     }
 }

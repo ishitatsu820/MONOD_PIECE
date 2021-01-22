@@ -12,7 +12,7 @@
                     <p>{{ $music->lyric }}</p>
                     <p>{{ $music->id }}</p>
                     <div id="app-comment">
-                        <comment-component :id="12"></comment-component>
+                        <comment-component :id="{{ $music->id }}"></comment-component>
                     </div>
                 </div>
             </div>
