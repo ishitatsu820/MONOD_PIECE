@@ -2007,11 +2007,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'MusicAppComponent',
@@ -38515,27 +38510,16 @@ var render = function() {
       { staticClass: "list-group" },
       _vm._l(_vm.musics, function(music) {
         return _c(
-          "div",
+          "a",
           {
             key: music.id,
             staticClass:
               "list-group-item list-group-item-action flex-colum align-items-start",
-            attrs: { href: "" }
+            attrs: { href: "/music/" + music.id }
           },
           [
             _c("div", { staticClass: "d-flex w-100 justify-content-between" }, [
               _c("h4", { staticClass: "mb-1" }, [_vm._v(_vm._s(music.title))]),
-              _vm._v(" "),
-              _vm._m(0, true),
-              _vm._v(" "),
-              _c("img", {
-                staticClass: "icon icon-trash",
-                attrs: {
-                  src: __webpack_require__(/*! ../../../public/icon/trash-alt-regular.svg */ "./public/icon/trash-alt-regular.svg"),
-                  alt: ""
-                }
-              }),
-              _vm._v(" "),
               _c("small", [_vm._v(_vm._s(music.artist))])
             ])
           ]
@@ -38545,22 +38529,7 @@ var render = function() {
     )
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("a", { attrs: { href: "" } }, [
-      _c("img", {
-        staticClass: "icon",
-        attrs: {
-          src: __webpack_require__(/*! ../../../public/icon/edit-regular.svg */ "./public/icon/edit-regular.svg"),
-          alt: ""
-        }
-      })
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -50726,28 +50695,6 @@ module.exports = function(module) {
 	return module;
 };
 
-
-/***/ }),
-
-/***/ "./public/icon/edit-regular.svg":
-/*!**************************************!*\
-  !*** ./public/icon/edit-regular.svg ***!
-  \**************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/edit-regular.svg?9f069b2d7763335fc424368a07787d41";
-
-/***/ }),
-
-/***/ "./public/icon/trash-alt-regular.svg":
-/*!*******************************************!*\
-  !*** ./public/icon/trash-alt-regular.svg ***!
-  \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/trash-alt-regular.svg?b441673548ae1d9dd366a8872e4aa80e";
 
 /***/ }),
 

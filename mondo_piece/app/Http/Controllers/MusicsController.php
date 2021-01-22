@@ -38,7 +38,7 @@ class MusicsController extends Controller
         if(!ctype_digit($id)){
             return redirect('/music')->with('flash_message', __('Invalid operation was performed.'));
         }
-        
-        return view('musics.ShowMuisc');
+        $music = Music::find($id);
+        return view('musics.ShowMuisc', compact('music'));
     }
 }

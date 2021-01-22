@@ -23,16 +23,11 @@
       </div>
     </div>
     <div class="list-group">
-      <div href="" class="list-group-item list-group-item-action flex-colum align-items-start" v-for="music in musics" :key="music.id">
+      <a :href="'/music/' + music.id" class="list-group-item list-group-item-action flex-colum align-items-start" v-for="music in musics" :key="music.id">
         <div class="d-flex w-100 justify-content-between">
-          <h4 class="mb-1">{{ music.title }}</h4>
-          <a href="">
-            <img src="../../../public/icon/edit-regular.svg" alt="" class="icon">
-          </a>
-          <img src="../../../public/icon/trash-alt-regular.svg" alt="" class="icon icon-trash">
-          <small>{{ music.artist }}</small>
+          <h4 class="mb-1">{{ music.title }}</h4><small>{{ music.artist }}</small>
         </div>
-      </div>
+      </a>
     </div>
 
   </div>
