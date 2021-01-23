@@ -174,6 +174,7 @@ return [
         // MONDO_PIECE\Providers\BroadcastServiceProvider::class,
         MONDO_PIECE\Providers\EventServiceProvider::class,
         MONDO_PIECE\Providers\RouteServiceProvider::class,
+        MONDO_PIECE\Providers\ComposerServiceProvider::class,
 
     ],
 
