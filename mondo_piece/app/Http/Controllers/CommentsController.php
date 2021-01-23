@@ -22,7 +22,7 @@ class CommentsController extends Controller
     {
         $post_id = $request->input('post_id');
         Log::debug($post_id);
-        $commentList = Comment::where('post_id', $post_id)->get();
+        $commentList = Comment::select('id', 'comment', 'updated_at')->where('post_id', $post_id)->get();
         Log::debug($commentList);
         return json_encode($commentList, JSON_UNESCAPED_UNICODE);
     }

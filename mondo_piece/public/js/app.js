@@ -1934,6 +1934,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'CommentComponent',
@@ -38391,9 +38392,9 @@ var render = function() {
           },
           [
             _c("div", { staticClass: "d-flex w-100 justify-content-between" }, [
-              _c("p", { staticClass: "mb-1" }, [
-                _vm._v(_vm._s(comment.comment))
-              ])
+              _c("p", [_vm._v(_vm._s(comment.username))]),
+              _vm._v(" "),
+              _c("p", {}, [_vm._v(_vm._s(comment.comment))])
             ])
           ]
         )

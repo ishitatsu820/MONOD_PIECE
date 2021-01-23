@@ -15,7 +15,8 @@
     <div class="list-group">
       <div class="list-group-item list-group-item-action flex-colum align-items-start" v-for="comment in comments" :key="comment.id">
         <div class="d-flex w-100 justify-content-between">
-          <p class="mb-1">{{ comment.comment }}</p>
+          <p>{{ comment.username }}</p>
+          <p class="">{{ comment.comment }}</p>
         </div>
       </div>
     </div>
