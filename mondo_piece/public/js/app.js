@@ -38563,14 +38563,16 @@ var render = function() {
           "a",
           {
             key: music.id,
-            staticClass:
-              "list-group-item list-group-item-action flex-colum align-items-start",
+            staticClass: "list-group-item list-group-item-action",
             attrs: { href: "/music/" + music.id }
           },
           [
-            _c("div", { staticClass: "d-flex w-100 justify-content-between" }, [
-              _c("h4", { staticClass: "mb-1" }, [_vm._v(_vm._s(music.title))]),
-              _c("small", [_vm._v(_vm._s(music.artist))])
+            _c("div", { staticClass: "d-flex w-100 flex-column" }, [
+              _c("div", { staticClass: "mb-1 font-weight-bold" }, [
+                _vm._v(_vm._s(music.title))
+              ]),
+              _vm._v(" "),
+              _c("small", [_vm._v("　-" + _vm._s(music.artist))])
             ])
           ]
         )

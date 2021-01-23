@@ -23,13 +23,13 @@
       </div>
     </div>
     <div class="list-group">
-      <a :href="'/music/' + music.id" class="list-group-item list-group-item-action flex-colum align-items-start" v-for="music in musics" :key="music.id">
-        <div class="d-flex w-100 justify-content-between">
-          <h4 class="mb-1">{{ music.title }}</h4><small>{{ music.artist }}</small>
-        </div>
+      <a :href="'/music/' + music.id" class="list-group-item list-group-item-action" v-for="music in musics" :key="music.id">
+          <div class="d-flex w-100 flex-column">
+            <div class="mb-1 font-weight-bold">{{ music.title }}</div>
+            <small>　-{{ music.artist }}</small>
+          </div>
       </a>
     </div>
-
   </div>
 </template>
 
@@ -124,6 +124,7 @@ export default {
     &-trash {
       stroke: red;
     }
+    
   }
 </style>
 

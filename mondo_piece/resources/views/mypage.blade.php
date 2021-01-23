@@ -16,9 +16,17 @@
             <div class="card">
                 <div class="card-header text-center">{{ __('POST LIST') }}</div>
                 <div class="card-body">
-                    @foreach($musics as $music)
-                        <p>{{$music->title}}</p>
-                    @endforeach
+                    <div class="list-group">
+                        @foreach($musics as $music)
+                            <div class="list-group-item list-group-item-action">
+                                <div class="d-flex w-100 flex-column">
+                                    <div class="mb-1 font-weight-bold">{{ $music->title }}</div>
+                                    <small>　-{{ $music->artist }}</small>
+                                </div>  
+                            </div>
+                        @endforeach
+                    
+                    </div>
                     
                 </div>
             </div>
