@@ -29,5 +29,6 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/comment/list', 'CommentsController@getList');
 
     Route::get('/mypage', 'UsersController@mypage')->name('mypage');
+    Route::get('/mypage/edit', 'UsersController@edit')->name('mypage.edit');
 
 });

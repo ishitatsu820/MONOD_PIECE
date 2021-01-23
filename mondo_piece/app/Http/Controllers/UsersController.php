@@ -16,5 +16,9 @@ class UsersController extends Controller
         Log::debug($comments);
         return view('mypage', compact('user', 'musics', 'comments'));
     }
-    
+    public function edit()
+    {
+        
+        return view('userEdit');
+    }
 }
