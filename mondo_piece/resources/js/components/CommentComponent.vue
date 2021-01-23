@@ -15,7 +15,7 @@
     <div class="list-group">
       <div class="list-group-item list-group-item-action flex-colum align-items-start" v-for="comment in comments" :key="comment.id">
         <div class="d-flex w-100 justify-content-between">
-          <h4 class="mb-1">{{ comments.title }}</h4>
+          <p class="mb-1">{{ comment.comment }}</p>
         </div>
       </div>
     </div>
@@ -39,15 +39,21 @@ export default {
     }
   },
   created() {
-    
+    this.getComment();
 
   },
   methods: {
     getComment(){
       let self = this;
-      Axios.get('comment/list')
+      Axios.get('/comment/list', {
+        params: {
+          post_id : this.id
+        }
+      })
       .then(function(response){
         console.log(response);
+        let data = response.data;
+        self.comments = data;
       })
       .catch(error => {
           console.log(error);
@@ -69,6 +75,7 @@ export default {
             console.log(error);
       });
       this.postComment = ''
+      this.getComment();
       }
   }
 }

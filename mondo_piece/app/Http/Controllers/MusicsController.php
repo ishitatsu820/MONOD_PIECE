@@ -30,8 +30,8 @@ class MusicsController extends Controller
     }
     //曲リスト取得処理
     public function GetList() {
-        $musicList = Music::orderBy('id', 'desc')->get();;
-        Log::debug($musicList);
+        $musicList = Music::orderBy('id', 'desc')->get();
+        // Log::debug($musicList);
         return json_encode($musicList, JSON_UNESCAPED_UNICODE);
     }
     public function ShowMusic($id) {

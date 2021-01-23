@@ -1947,12 +1947,20 @@ __webpack_require__.r(__webpack_exports__);
       }]
     };
   },
-  created: function created() {},
+  created: function created() {
+    this.getComment();
+  },
   methods: {
     getComment: function getComment() {
       var self = this;
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('comment/list').then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/comment/list', {
+        params: {
+          post_id: this.id
+        }
+      }).then(function (response) {
         console.log(response);
+        var data = response.data;
+        self.comments = data;
       })["catch"](function (error) {
         console.log(error);
       });
@@ -1967,6 +1975,7 @@ __webpack_require__.r(__webpack_exports__);
         console.log(error);
       });
       this.postComment = '';
+      this.getComment();
     }
   }
 });
@@ -38382,8 +38391,8 @@ var render = function() {
           },
           [
             _c("div", { staticClass: "d-flex w-100 justify-content-between" }, [
-              _c("h4", { staticClass: "mb-1" }, [
-                _vm._v(_vm._s(_vm.comments.title))
+              _c("p", { staticClass: "mb-1" }, [
+                _vm._v(_vm._s(comment.comment))
               ])
             ])
           ]
