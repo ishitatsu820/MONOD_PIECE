@@ -1,23 +1,22 @@
 <template>
   <div>
-    <p>コメントです</p>
     <div class="form-group row">
       <label for="comment" class="col-md-4 col-form-label text-md-right">コメント</label>
-      <div class="col-md-6 mb-3">
+      <div class="col-md-6">
         <input type="text" class="form-control" name="comment" id="comment" value="" autocomplete="comment" autofocus v-model="postComment">
       </div>
     </div>
     <div class="form-group row mb-5">
       <div class="col-md-8 offset-md-4">
-        <button class="btn btn-primary" @click="createComment">コメント登録</button>
+        <button class="btn btn-primary" @click="createComment">コメントする</button>
       </div>
     </div>
     <div class="list-group">
       <div class="list-group-item list-group-item-action flex-colum align-items-start" v-for="comment in comments" :key="comment.id">
         <div class="d-flex w-100 justify-content-between">
-          <p>{{ comment.username }}</p>
-          <p class="">{{ comment.comment }}</p>
+          <h4>{{ comment.name }}</h4><small>{{ comment.updated_at}}</small>
         </div>
+        <p>{{ comment.comment }}</p>
       </div>
     </div>
   </div>

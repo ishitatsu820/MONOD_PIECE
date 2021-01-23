@@ -1934,7 +1934,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'CommentComponent',
@@ -38325,8 +38324,6 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("p", [_vm._v("コメントです")]),
-    _vm._v(" "),
     _c("div", { staticClass: "form-group row" }, [
       _c(
         "label",
@@ -38337,7 +38334,7 @@ var render = function() {
         [_vm._v("コメント")]
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "col-md-6 mb-3" }, [
+      _c("div", { staticClass: "col-md-6" }, [
         _c("input", {
           directives: [
             {
@@ -38374,7 +38371,7 @@ var render = function() {
         _c(
           "button",
           { staticClass: "btn btn-primary", on: { click: _vm.createComment } },
-          [_vm._v("コメント登録")]
+          [_vm._v("コメントする")]
         )
       ])
     ]),
@@ -38392,10 +38389,11 @@ var render = function() {
           },
           [
             _c("div", { staticClass: "d-flex w-100 justify-content-between" }, [
-              _c("p", [_vm._v(_vm._s(comment.username))]),
-              _vm._v(" "),
-              _c("p", {}, [_vm._v(_vm._s(comment.comment))])
-            ])
+              _c("h4", [_vm._v(_vm._s(comment.name))]),
+              _c("small", [_vm._v(_vm._s(comment.updated_at))])
+            ]),
+            _vm._v(" "),
+            _c("p", [_vm._v(_vm._s(comment.comment))])
           ]
         )
       }),

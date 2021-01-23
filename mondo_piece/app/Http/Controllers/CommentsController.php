@@ -22,7 +22,7 @@ class CommentsController extends Controller
     {
         $post_id = $request->input('post_id');
         Log::debug($post_id);
-        $commentList = Comment::select('id', 'comment', 'updated_at')->where('post_id', $post_id)->get();
+        $commentList = Comment::select('comments.id', 'comments.comment', 'comments.updated_at', 'users.name')->leftJoin('users', 'users.id', '=', 'comments.user_id')->where('post_id', $post_id)->get();
         Log::debug($commentList);
         return json_encode($commentList, JSON_UNESCAPED_UNICODE);
     }
