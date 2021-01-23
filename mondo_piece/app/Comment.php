@@ -12,10 +12,10 @@ class Comment extends Model
     
     public function music()
     {
-    return $this->belongsTo('App\Music');   
+    return $this->belongsTo('MONDO_PIECE\Music');   
     }
     public function user()
     {
-    return $this->belongsTo('App\User');   
+    return $this->belongsTo('MONDO_PIECE\User');   
     }
 }

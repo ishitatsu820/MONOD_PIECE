@@ -28,6 +28,6 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('/comment/create', 'CommentsController@create');
     Route::get('/comment/list', 'CommentsController@getList');
 
-    Route::get('/mypage', 'UsersController@mypage');
+    Route::get('/mypage', 'UsersController@mypage')->name('mypage');
 
 });
