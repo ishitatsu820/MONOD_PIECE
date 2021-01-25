@@ -12,8 +12,9 @@
                         <tr><th>{{ __('age')}}</th><td>{{ $user->age }}</td></tr>             
                         <tr><th>{{ __('plofile')}}</th><td>{{ $user->profile }}</td></tr>             
                         <tr><th>{{ __('anthem')}}</th><td>{{ $user->anthem }}</td></tr>             
+                        <tr><th>{{ __('id')}}</th><td>{{ $user->id }}</td></tr>             
                     </table>
-                    <a href="{{ route('mypage.edit')}}"><button class="btn btn-primary">{{ __('EDIT USER')}}</button></a>
+                    <a href="{{ route('mypage.edit', $user->id)}}"><button class="btn btn-primary">{{ __('EDIT USER')}}</button></a>
                 </div>
             </div>
             <div class="card mb-4">
