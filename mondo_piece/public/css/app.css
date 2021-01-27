@@ -10898,3 +10898,23 @@ a.text-dark:focus {
   }
 }
 
+.bg-light-shades {
+  background-color: #f7f6f5;
+}
+
+.bg-dark-shades {
+  background-color: #1e1d28;
+}
+
+.bg-light-accent {
+  background-color: #87819e;
+}
+
+#app {
+  background-color: #f7f6f5;
+}
+
+#app .navbar a {
+  color: #bd2405;
+}
+
