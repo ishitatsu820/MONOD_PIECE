@@ -14,7 +14,7 @@
                         <tr><th>{{ __('anthem')}}</th><td>{{ $user->anthem }}</td></tr>             
                         <tr><th>{{ __('id')}}</th><td>{{ $user->id }}</td></tr>             
                     </table>
-                    <a href="{{ route('mypage.edit', $user->id)}}"><button class="btn btn-primary">{{ __('EDIT USER')}}</button></a>
+                    <a href="{{ route('mypage.edit', $user->id)}}"><button class="btn btn-light-accent">{{ __('EDIT USER')}}</button></a>
                 </div>
             </div>
             <div class="card mb-4">
@@ -22,12 +22,12 @@
                 <div class="card-body">
                     <div class="list-group">
                         @foreach($musics as $music)
-                            <div class="list-group-item list-group-item-action">
+                            <a href="/music/{{ $music->id }}" class="list-group-item list-group-item-action">
                                 <div class="d-flex w-100 flex-column">
                                     <div class="mb-1 font-weight-bold">{{ $music->title }}</div>
                                     <small>　-{{ $music->artist }}</small>
                                 </div>  
-                            </div>
+                            </a>
                         @endforeach
                     
                     </div>
@@ -38,7 +38,12 @@
                 <div class="card-header text-center">{{ __('COMMENT LIST') }}</div>
                 <div class="card-body">
                     @foreach($comments as $comment)
-                        <p>{{$comment->comment}}</p>
+                        <a href="/music/{{ $comment->post_id }}" class="list-group-item list-group-item-action">
+                            <div class="d-flex w-100 flex-column">
+                                    <div class="mb-1 font-weight-bold">{{ $comment->comment }}</div>
+                                    <small>　-{{ $comment->user_idｓ }}</small>
+                            </div>  
+                        </a>
                     @endforeach
                 </div>
             </div>

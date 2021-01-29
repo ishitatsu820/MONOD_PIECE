@@ -10910,6 +10910,12 @@ a.text-dark:focus {
   background-color: #87819e;
 }
 
+.btn-light-accent {
+  color: #1e1d28;
+  border-color: #e1aa48;
+  background-color: #e1aa48;
+}
+
 #app {
   background-color: #f7f6f5;
 }

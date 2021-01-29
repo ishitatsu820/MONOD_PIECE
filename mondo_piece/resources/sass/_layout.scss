@@ -9,6 +9,11 @@
 .bg-light-accent {
   background-color: $color-dark-accent;
 }
+.btn-light-accent {
+  color: $color-dark-shades;
+  border-color: $color-light-accent;
+  background-color: $color-light-accent;
+}
 
 
 #app {
