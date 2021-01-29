@@ -5,11 +5,15 @@
     <div class="row justify-content-center">
         <div class="col-md-9">
             <div class="card">
-                <div class="card-header text-center">{{ __('MUSICS') }}</div>
+                <div class="card-header">{{ __('MUSIC Detail') }}</div>
                 <div class="card-body">
-                  <div id="app-music">
-                    <music-app-component></music-app-component>
-                  </div>
+                    <h1>{{ $music->title }}</h1>
+                    <p>{{ $music->artist }}</p>
+                    <p>{{ $music->lyric }}</p>
+                    <p>{{ $music->id }}</p>
+                    <div id="app-comment">
+                        <comment-component :id="{{ $music->id }}"></comment-component>
+                    </div>
                 </div>
             </div>
         </div>
@@ -20,9 +24,7 @@
               <h5>{{ __('USER NAME')}}</h2>
             </div>
           </div>
-        </div>
     </div>
-  
 </div>
 
 @endsection

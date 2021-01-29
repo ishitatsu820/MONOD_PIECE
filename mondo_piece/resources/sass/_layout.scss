@@ -1,0 +1,27 @@
+@import 'variables';
+
+.bg-light-shades {
+  background-color: $color-light-shades;
+}
+.bg-dark-shades {
+  background-color: $color-dark-shades;
+}
+.bg-light-accent {
+  background-color: $color-dark-accent;
+}
+.btn-light-accent {
+  color: $color-dark-shades;
+  border-color: $color-light-accent;
+  background-color: $color-light-accent;
+}
+
+
+#app {
+  background-color: $color-light-shades;
+  & .navbar {
+    & a {
+      color: $color-main-brand;
+    }
+  }
+  
+}

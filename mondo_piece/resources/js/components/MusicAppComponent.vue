@@ -2,35 +2,34 @@
   <div>
     <div class="form-group row">
       <label for="title" class="col-md-4 col-form-label text-md-right">曲名</label>
-      <div class="col-md-6">
+      <div class="col-md-6 mb-3">
         <input type="text" class="form-control" name="title" id="title" value="" autocomplete="title" autofocus v-model="postMusicTitle">
       </div>
       
       <label for="artist" class="col-md-4 col-form-label text-md-right">アーティスト名</label>
-      <div class="col-md-6">
+      <div class="col-md-6 mb-3">
         <input type="text" class="form-control" name="artist" id="artist" value="" autocomplete="artist" autofocus v-model="postMusicArtist">
       </div>
 
       <label for="lyric" class="col-md-4 col-form-label text-md-right">歌詞</label>
-      <div class="col-md-6">
+      <div class="col-md-6 mb-3">
         <textarea name="lyric" id="lyric" cols="30" rows="10" class="form-control" autofocus v-model="postMusicLyric"></textarea>
       </div>
       
     </div>
-    <div class="form-group row mb-0">
+    <div class="form-group row mb-5">
       <div class="col-md-8 offset-md-4">
         <button class="btn btn-primary" @click="createMusic">新規登録</button>
       </div>
     </div>
     <div class="list-group">
-      <a href="" class="list-group-item list-group-item-action flex-colum align-items-start" v-for="music in musics" :key="music.id">
-        <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">{{ music.title }}</h5><small>{{ music.artist }}</small>
-         
-        </div>
+      <a :href="'/music/' + music.id" class="list-group-item list-group-item-action" v-for="music in musics" :key="music.id">
+          <div class="d-flex w-100 flex-column">
+            <div class="mb-1 font-weight-bold">{{ music.title }}</div>
+            <small>　-{{ music.artist }}</small>
+          </div>
       </a>
     </div>
-
   </div>
 </template>
 
@@ -64,24 +63,6 @@ export default {
     console.log('created');
   },
   methods: {
-    createMusic() {
-      var data = {
-        'title': this.postMusicTitle,
-        'artist': this.postMusicArtist,
-        'lyric': this.postMusicLyric,
-      };
-      axios.post('/music/create',data)
-      .then(
-        console.log('POSTしました！')
-      )     
-      .catch(error => {
-          console.log(error);
-      });
-      this.postMusicArtist = '',
-      this.postMusicTitle = '',
-      this.postMusicLyric = '',
-      this.getMusicList();
-    },
     getMusicList() {
       let self = this;
       Axios.get('/music/list')
@@ -103,11 +84,47 @@ export default {
       .catch(function(error){
         console.log(error);
       })
+    },
+    createMusic() {
+      let postData = {
+        'title': this.postMusicTitle,
+        'artist': this.postMusicArtist,
+        'lyric': this.postMusicLyric,
+      };
+      Axios.post('/music/create',postData)
+      .then(
+        console.log('新規データPOSTしました！')
+      )     
+      .catch(error => {
+          console.log(error);
+      });
+      this.postMusicArtist = '',
+      this.postMusicTitle = '',
+      this.postMusicLyric = '',
+      this.getMusicList();
+    },
+    deleteMusic(){
+      axios.post('muisc/delete', data)
+      .then(
+        console.log('削除データPOSTしました！')
+  
+      )
+      .catch(error => {
+        console.log(error);
+      })
     }
   }
 }
 </script>
 
-<style>
-
+<style lang="scss" scoped>
+  .icon {
+    height: 30px;
+    width: 30px;
+    &-trash {
+      stroke: red;
+    }
+    
+  }
 </style>
+

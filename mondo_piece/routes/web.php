@@ -22,6 +22,14 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware' => 'auth'], function() {
     Route::get('/music', 'MusicsController@music')->name('musics.music');
     Route::post('/music/create', 'MusicsController@create')->name('musics.create');
-    Route::get('/music/list', 'MusicsController@getList')->name('musics.getList');
+    Route::get('/music/list', 'MusicsController@GetList')->name('musics.GetList');
+    Route::get('/music/{id}', 'MusicsController@ShowMusic')->name('musics.ShowMuisc');
+
+    Route::post('/comment/create', 'CommentsController@create');
+    Route::get('/comment/list', 'CommentsController@getList');
+
+    Route::get('/mypage', 'UsersController@mypage')->name('mypage');
+    Route::get('/mypage/{id}/edit', 'UsersController@edit')->name('mypage.edit');
+    Route::post('/mypage/{id}/edit', 'UsersController@update')->name('mypage.update');
 
 });

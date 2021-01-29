@@ -29,9 +29,16 @@ class MusicsController extends Controller
         $music->save();
     }
     //曲リスト取得処理
-    public function getList() {
-        $musicList = Music::orderBy('id', 'desc')->get();;
-        Log::debug($musicList);
+    public function GetList() {
+        $musicList = Music::orderBy('id', 'desc')->get();
+        // Log::debug($musicList);
         return json_encode($musicList, JSON_UNESCAPED_UNICODE);
+    }
+    public function ShowMusic($id) {
+        if(!ctype_digit($id)){
+            return redirect('/music')->with('flash_message', __('Invalid operation was performed.'));
+        }
+        $music = Music::find($id);
+        return view('musics.ShowMuisc', compact('music'));
     }
 }

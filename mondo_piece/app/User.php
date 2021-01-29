@@ -41,6 +41,10 @@ class User extends Authenticatable
 
     public function musics()
     {
-        return $this->hasMany('App\Music');
+        return $this->hasMany('MONDO_PIECE\Music');
+    }
+    public function comments()
+    {
+        return $this->hasMany('MONDO_PIECE\Comment');
     }
 }
