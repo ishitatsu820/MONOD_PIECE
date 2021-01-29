@@ -24,7 +24,7 @@
                         @foreach($musics as $music)
                             <div class="list-group-item list-group-item-action">
                                 <div class="row">                               
-                                    <a class="col-10" href="/music/{{ $music->id }}" >
+                                    <a class="col-11" href="/music/{{ $music->id }}" >
                                     <div class="d-flex w-100 flex-column">
                                         <h5 class="mb-1">{{ $music->title }}</h5>
                                         <small>{{ $music->updated_at }}</small>
@@ -32,9 +32,9 @@
                                     <p class="mb-1">{{ $music->lyric }}</p>
                                     <small>{{ $music->artist }}</small>
                                     </a>
-                                    <div class="col-2">
-                                        <a href="#"><img src="{{ asset('/icon/edit-regular.svg')}}" alt="" ></a>
-                                        <a href="#"><img src="{{ asset('/icon/trash-alt-regular.svg')}}" alt="" ></a>
+                                    <div class="col-1 p-0">
+                                        <a href="#" class=""><img src="{{ asset('/icon/edit-regular.svg')}}" alt="" class="m-2"></a>
+                                        <a href="#" class=""><img src="{{ asset('/icon/trash-alt-regular.svg')}}" alt="" class="m-2" ></a>
                                     </div>
                                 </div>
                                 
