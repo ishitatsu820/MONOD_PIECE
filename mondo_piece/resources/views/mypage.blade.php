@@ -22,14 +22,24 @@
                 <div class="card-body">
                     <div class="list-group">
                         @foreach($musics as $music)
-                            <a href="/music/{{ $music->id }}" class="list-group-item list-group-item-action">
-                                <div class="d-flex w-100 flex-column">
-                                    <h5 class="mb-1">{{ $music->title }}</h5>
-                                    <small>{{ $music->updated_at }}</small>
+                            <div class="list-group-item list-group-item-action">
+                                <div class="row">                               
+                                    <a class="col-10" href="/music/{{ $music->id }}" >
+                                    <div class="d-flex w-100 flex-column">
+                                        <h5 class="mb-1">{{ $music->title }}</h5>
+                                        <small>{{ $music->updated_at }}</small>
+                                    </div>
+                                    <p class="mb-1">{{ $music->lyric }}</p>
+                                    <small>{{ $music->artist }}</small>
+                                    </a>
+                                    <div class="col-2">
+                                        <a href="#"><img src="{{ asset('/icon/edit-regular.svg')}}" alt="" ></a>
+                                        <a href="#"><img src="{{ asset('/icon/trash-alt-regular.svg')}}" alt="" ></a>
+                                    </div>
                                 </div>
-                                <p class="mb-1">{{ $music->lyric }}</p>
-                                <small>{{ $music->artist }}</small>
-                            </a>
+                                
+                                
+                            </div>
                         @endforeach
 
                     
