@@ -11,6 +11,10 @@ use Illuminate\Support\Facades\Auth;
 
 class MusicsController extends Controller
 {
+    //TOP画面
+    public function top(){
+        return view('top');
+    }
     //曲新規登録画面表示
     public function music()
     {

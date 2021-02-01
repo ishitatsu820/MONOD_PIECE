@@ -10924,3 +10924,25 @@ a.text-dark:focus {
   color: #bd2405;
 }
 
+#app .footer {
+  color: #bd2405;
+}
+
+.hero {
+  background-image: url(/images/hero.jpg?f60d07238e1993350f3dbd951ffec314);
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  min-height: 400px;
+  color: #f7f6f5;
+  margin-bottom: 0;
+}
+
+.hero-content {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+

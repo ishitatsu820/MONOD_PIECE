@@ -1,0 +1,19 @@
+@import '../variables';
+
+.hero {
+  background-image: url(../../../public/hero/hero.jpg);
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  min-height: 400px;
+  color: $color-light-shades;
+  margin-bottom: 0;
+  &-content {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+}

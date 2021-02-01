@@ -23,5 +23,11 @@
       color: $color-main-brand;
     }
   }
+  & .footer {
+    color: $color-main-brand;
+    
+    & p {
+    }
+  }
   
 }

@@ -11,14 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/', 'MusicsController@top')->name('top');
 Route::group(['middleware' => 'auth'], function() {
     Route::get('/music', 'MusicsController@music')->name('musics.music');
     Route::post('/music/create', 'MusicsController@create')->name('musics.create');
