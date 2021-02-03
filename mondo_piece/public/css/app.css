@@ -10925,7 +10925,8 @@ a.text-dark:focus {
 }
 
 #app .footer {
-  color: #bd2405;
+  color: #e1aa48;
+  background-color: #1e1d28;
 }
 
 .hero {
