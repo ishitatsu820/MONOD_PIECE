@@ -25,6 +25,8 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('/music/create', 'MusicsController@create')->name('musics.create');
     Route::get('/music/list', 'MusicsController@GetList')->name('musics.GetList');
     Route::get('/music/{id}', 'MusicsController@ShowMusic')->name('musics.ShowMuisc');
+    Route::get('/music/{id}/edit', 'MusicsController@edit')->name('musics.edit');
+    Route::post('/music/{id}/edit', 'MusicsController@update')->name('musics.update');
 
     Route::post('/comment/create', 'CommentsController@create');
     Route::get('/comment/list', 'CommentsController@getList');

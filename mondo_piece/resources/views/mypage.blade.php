@@ -18,7 +18,7 @@
                 </div>
             </div>
             <div class="card mb-4">
-                <div class="card-header text-center">{{ __('POST LIST') }}</div>
+                <div class="card-header text-center">{{ __('MY POST LIST') }}</div>
                 <div class="card-body">
                     <div class="list-group">
                         @foreach($musics as $music)
@@ -33,8 +33,8 @@
                                     <small>{{ $music->artist }}</small>
                                     </a>
                                     <div class="col-1 p-0">
-                                        <a href="#" class=""><img src="{{ asset('/icon/edit-regular.svg')}}" alt="" class="m-2"></a>
-                                        <a href="#" class=""><img src="{{ asset('/icon/trash-alt-regular.svg')}}" alt="" class="m-2" ></a>
+                                        <a href="/music/{{ $music->id }}/edit" class=""><img src="{{ asset('/icon/edit-regular.svg')}}" alt="" class="m-2"></a>
+                                        <a href="/music/{{ $music->id }}/delete" class=""><img src="{{ asset('/icon/trash-alt-regular.svg')}}" alt="" class="m-2" ></a>
                                     </div>
                                 </div>
                                 
@@ -48,7 +48,7 @@
                 </div>
             </div>
             <div class="card mb-4">
-                <div class="card-header text-center">{{ __('COMMENT LIST') }}</div>
+                <div class="card-header text-center">{{ __('MY COMMENT LIST') }}</div>
                 <div class="card-body">
                     @foreach($comments as $comment)
                         <a href="/music/{{ $comment->post_id }}" class="list-group-item list-group-item-action">

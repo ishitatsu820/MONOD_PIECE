@@ -45,4 +45,24 @@ class MusicsController extends Controller
         $music = Music::find($id);
         return view('musics.ShowMuisc', compact('music'));
     }
+    public function edit($id) 
+    {
+        if(!ctype_digit($id)){
+            return redirect('/music')->with('flash_message', __('Invalid operation was performed.'));
+        }
+        $editMusic = Music::find($id);
+        
+        return view('musics.editMusic', compact('edit'));
+    }
+    public function update(Request $request, $id) 
+    {
+        
+        $editMusic = Music::find($id);
+        $editMusic->title = $request->title;
+        $editMusic->artist = $request->artist;
+        $editMusic->lyric = $request->lyric;
+        $editMusic->save();
+    
+        return redirect('/mypage')->with('flash_message', __('Updated MusicData.'));
+    }
 }
