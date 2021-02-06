@@ -1,0 +1,17 @@
+@import 'variables';
+
+
+.edit-link {
+  min-height: 30px;
+  min-width: 30px;
+}
+
+ .delete-link {
+  background-image:url('../../public/icon/trash-alt-regular.svg');
+  background-color: #fff;
+  background-repeat: no-repeat;
+  min-width: 40px;
+  min-height: 30px;
+  border: 0px;
+}
+

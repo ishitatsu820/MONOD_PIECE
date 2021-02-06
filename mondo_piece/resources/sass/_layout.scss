@@ -1,5 +1,14 @@
 @import 'variables';
 
+a {
+  color: $color-dark-shades;
+}
+a:hover {
+  color: $color-dark-shades;
+  cursor : pointer;
+  text-decoration: none;
+}
+
 .bg-light-shades {
   background-color: $color-light-shades;
 }
@@ -31,3 +40,4 @@
   }
   
 }
+

@@ -17,10 +17,13 @@ class UsersController extends Controller
         Log::debug($comments);
         return view('mypage', compact('user', 'musics', 'comments'));
     }
-    public function edit($id)
+    public function edit()
     {
+        
         $user = Auth::user();
-        return view('userEdit', compact('user'));
+        
+            return view('userEdit', compact('user'));
+        
     }
     public function update(Request $request, $id){
 

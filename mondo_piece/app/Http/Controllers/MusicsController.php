@@ -52,17 +52,25 @@ class MusicsController extends Controller
         }
         $editMusic = Music::find($id);
         
-        return view('musics.editMusic', compact('edit'));
+        return view('musics.editMusic', compact('editMusic'));
     }
     public function update(Request $request, $id) 
     {
         
-        $editMusic = Music::find($id);
-        $editMusic->title = $request->title;
-        $editMusic->artist = $request->artist;
-        $editMusic->lyric = $request->lyric;
-        $editMusic->save();
+        $updateusic = Music::find($id);
+        $updateMusic->title = $request->title;
+        $updateMusic->artist = $request->artist;
+        $updateMusic->lyric = $request->lyric;
+        $updateMusic->save();
     
         return redirect('/mypage')->with('flash_message', __('Updated MusicData.'));
+    }
+    public function delete($id) {
+        if(!ctype_digit($id)){
+            return redirect('/music')->with('flash_message', __('Invalid operation was performed.'));
+        }
+        Music::find($id)->delete();
+
+        return redirect('/mypage')->with('flash_message', __('Deleted MusicData.'));
     }
 }

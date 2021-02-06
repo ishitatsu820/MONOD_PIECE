@@ -27,12 +27,13 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/music/{id}', 'MusicsController@ShowMusic')->name('musics.ShowMuisc');
     Route::get('/music/{id}/edit', 'MusicsController@edit')->name('musics.edit');
     Route::post('/music/{id}/edit', 'MusicsController@update')->name('musics.update');
+    Route::post('/music/{id}/delete', 'MusicsController@delete')->name('musics.delete');
 
     Route::post('/comment/create', 'CommentsController@create');
     Route::get('/comment/list', 'CommentsController@getList');
 
     Route::get('/mypage', 'UsersController@mypage')->name('mypage');
-    Route::get('/mypage/{id}/edit', 'UsersController@edit')->name('mypage.edit');
+    Route::get('/mypage/edit', 'UsersController@edit')->name('mypage.edit');
     Route::post('/mypage/{id}/edit', 'UsersController@update')->name('mypage.update');
 
 });

@@ -8,7 +8,7 @@
         <div class="card-header">{{ __('MUSIC EDIT') }}</div>
 
         <div class="card-body">
-          <form method="POST" action="{{ route('musics.update')}}">
+          <form method="POST" action="{{ route('musics.update', $editMusic->id)}}">
             @csrf
 
             <div class="form-group row">
