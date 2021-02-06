@@ -31,6 +31,9 @@ Route::group(['middleware' => 'auth'], function() {
 
     Route::post('/comment/create', 'CommentsController@create');
     Route::get('/comment/list', 'CommentsController@getList');
+    Route::get('/comment/{id}/edit', 'CommentsController@edit')->name('comment.edit');
+    Route::post('/comment/{id}/edit', 'CommentsController@update')->name('comment.update');
+    Route::post('/comment/{id}/delete', 'CommentsController@delete')->name('comment.delete');
 
     Route::get('/mypage', 'UsersController@mypage')->name('mypage');
     Route::get('/mypage/edit', 'UsersController@edit')->name('mypage.edit');

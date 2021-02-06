@@ -29,8 +29,7 @@
               <td>{{ $user->id }}</td>
             </tr>
           </table>
-          <a href="{{ route('mypage.edit')}}"><button
-              class="btn btn-light-accent">{{ __('EDIT USER')}}</button></a>
+          <a href="{{ route('mypage.edit')}}"><button class="btn btn-light-accent">{{ __('EDIT USER')}}</button></a>
         </div>
       </div>
       <div class="card mb-4">
@@ -49,7 +48,8 @@
                   <small>{{ $music->artist }}</small>
                 </a>
                 <div class="col-1 p-0 d-flex flex-column align-items-center">
-                  <a href="{{ route('musics.edit', ['id' => $music->id])}}" class="edit-link "><img src="{{ asset('/icon/edit-regular.svg')}}" alt="" class="m-2"></a>
+                  <a href="{{ route('musics.edit', ['id' => $music->id])}}" class="edit-link "><img
+                      src="{{ asset('/icon/edit-regular.svg')}}" alt="" class="m-2"></a>
                   <form action="{{ route('musics.delete', $music->id)}}" method="post">
                     @csrf
                     <button class="delete-link" onclick='return confirm("削除しますか？");'></button>
@@ -68,12 +68,25 @@
         <div class="card-header text-center">{{ __('MY COMMENT LIST') }}</div>
         <div class="card-body">
           @foreach($comments as $comment)
-          <a href="/music/{{ $comment->post_id }}" class="list-group-item list-group-item-action">
-            <div class="d-flex w-100 flex-column">
-              <div class="mb-1 font-weight-bold">{{ $comment->comment }}</div>
-              <small>　-{{ $comment->user_idｓ }}</small>
+          <div class="list-group-item list-group-item-action">
+            <div class="row">
+              <a class="col-11" href="/music/{{ $music->id }}">
+                <div class="d-flex w-100 flex-column">
+                  <h5 class="mb-1">{{ $comment->title }}</h5>
+                  <small>{{ $comment->updated_at }}</small>
+                </div>
+                <p class="mb-1">{{ $comment->comment }}</p>
+              </a>
+              <div class="col-1 p-0 d-flex flex-column align-items-center">
+                <a href="{{ route('comment.edit', ['id' => $comment->id])}}" class="edit-link "><img
+                    src="{{ asset('/icon/edit-regular.svg')}}" alt="" class="m-2"></a>
+                <form action="{{ route('comment.delete', $comment->id)}}" method="post">
+                  @csrf
+                  <button class="delete-link" onclick='return confirm("削除しますか？");'></button>
+                </form>
+              </div>
             </div>
-          </a>
+          </div>
           @endforeach
         </div>
       </div>
