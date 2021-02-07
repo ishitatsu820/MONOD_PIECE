@@ -13,14 +13,17 @@ class UsersController extends Controller
     {
         $user = Auth::user();
         $musics = Auth::user()->musics()->get();
-        $comments = Auth::user()->comments()->get();
+        $comments = Auth::user()->comments()->select('comments.id', 'comments.post_id', 'comments.user_id', 'comments.comment', 'comments.updated_at', 'musics.title')->leftJoin('musics', 'musics.id', '=', 'comments.post_id')->get();
         Log::debug($comments);
         return view('mypage', compact('user', 'musics', 'comments'));
     }
-    public function edit($id)
+    public function edit()
     {
+        
         $user = Auth::user();
-        return view('userEdit', compact('user'));
+        
+            return view('userEdit', compact('user'));
+        
     }
     public function update(Request $request, $id){
 

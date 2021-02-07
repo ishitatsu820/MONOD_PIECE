@@ -11,6 +11,10 @@ use Illuminate\Support\Facades\Auth;
 
 class MusicsController extends Controller
 {
+    //TOP画面
+    public function top(){
+        return view('top');
+    }
     //曲新規登録画面表示
     public function music()
     {
@@ -40,5 +44,33 @@ class MusicsController extends Controller
         }
         $music = Music::find($id);
         return view('musics.ShowMuisc', compact('music'));
+    }
+    public function edit($id) 
+    {
+        if(!ctype_digit($id)){
+            return redirect('/music')->with('flash_message', __('Invalid operation was performed.'));
+        }
+        $editMusic = Music::find($id);
+        
+        return view('musics.editMusic', compact('editMusic'));
+    }
+    public function update(Request $request, $id) 
+    {
+        
+        $updateMusic = Music::find($id);
+        $updateMusic->title = $request->title;
+        $updateMusic->artist = $request->artist;
+        $updateMusic->lyric = $request->lyric;
+        $updateMusic->save();
+    
+        return redirect('/mypage')->with('flash_message', __('Updated MusicData.'));
+    }
+    public function delete($id) {
+        if(!ctype_digit($id)){
+            return redirect('/music')->with('flash_message', __('Invalid operation was performed.'));
+        }
+        Music::find($id)->delete();
+
+        return redirect('/mypage')->with('flash_message', __('Deleted MusicData.'));
     }
 }

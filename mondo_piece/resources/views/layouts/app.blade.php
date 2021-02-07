@@ -21,7 +21,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light shadow">
+        <nav class="navbar navbar-expand-md navbar-dark shadow">
             <div class="container">
                 <a class="navbar-brand mb-0 h1" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -79,9 +79,15 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="">
             @yield('content')
         </main>
+
+        <div class="footer">
+            <div class="container-fluid text-center">
+                <p class="mb-0 py-4 py-md-2">©ISHITATSU 2021</p>
+            </div>
+        </div>
     </div>
 </body>
 </html>
