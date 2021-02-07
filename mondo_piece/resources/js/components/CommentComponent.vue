@@ -8,7 +8,7 @@
     </div>
     <div class="form-group row mb-5">
       <div class="col-md-8 offset-md-4">
-        <button class="btn btn-primary" @click="createComment">コメントする</button>
+        <button class="btn btn-light-accent" @click="createComment">コメントする</button>
       </div>
     </div>
     <div class="list-group">

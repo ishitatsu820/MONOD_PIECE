@@ -38370,7 +38370,10 @@ var render = function() {
       _c("div", { staticClass: "col-md-8 offset-md-4" }, [
         _c(
           "button",
-          { staticClass: "btn btn-primary", on: { click: _vm.createComment } },
+          {
+            staticClass: "btn btn-light-accent",
+            on: { click: _vm.createComment }
+          },
           [_vm._v("コメントする")]
         )
       ])
