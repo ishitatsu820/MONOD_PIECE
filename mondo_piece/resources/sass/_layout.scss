@@ -1,43 +1,89 @@
 @import 'variables';
 
+body {
+  color: $color-light-shades;
+}
+
 a {
   color: $color-dark-shades;
 }
+
 a:hover {
-  color: $color-dark-shades;
-  cursor : pointer;
+  color          : $color-dark-shades;
+  cursor         : pointer;
   text-decoration: none;
 }
 
 .bg-light-shades {
   background-color: $color-light-shades;
 }
+
 .bg-dark-shades {
   background-color: $color-dark-shades;
 }
+
 .bg-light-accent {
   background-color: $color-dark-accent;
 }
+
 .btn-light-accent {
-  color: $color-dark-shades;
-  border-color: $color-light-accent;
+  color           : $color-dark-shades;
+  border-color    : $color-light-accent;
   background-color: $color-light-accent;
 }
-
+.main-brand-title {
+  color: $color-main-brand;
+}
 
 #app {
   background-color: $color-light-shades;
-  & .navbar {
-    & a {
-      color: $color-main-brand;
-    }
-  }
-  & .footer {
-    color: $color-light-accent;
-    background-color: $color-dark-shades;
-    & p {
-    }
-  }
-  
-}
 
+  & .navbar {
+    background-color: $color-main-brand;
+
+    & a {
+      color: $color-light-shades;
+    }
+  }
+
+  & .footer {
+    color           : $color-light-accent;
+    background-color: $color-dark-shades;
+
+    & p {}
+  }
+
+  main {
+    background-color: $color-dark-shades;
+  }
+
+  .card {
+    border: none;
+    background-color: $color-dark-shades;
+    .card-header {
+      background-color: $color-light-accent;
+      border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) calc(0.25rem - 1px) calc(0.25rem - 1px);
+    }
+
+    .card-body {
+      background-color: $color-dark-shades;
+      .form-control:focus {
+        border-color: $color-light-accent;
+        box-shadow: 0 0 0 0.2rem rgb(225 170 72 / 25%);
+      }
+      .list-group-item {
+        background-color: $color-dark-shades;
+        color: $color-light-shades;
+        border: 1px solid $color-light-shades;
+        border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) calc(0.25rem - 1px) calc(0.25rem - 1px);
+        a {
+          color: $color-light-shades;
+        }
+      }
+      .table {
+        color: $color-light-shades;
+      }
+    }
+  }
+
+}

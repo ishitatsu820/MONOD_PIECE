@@ -19,13 +19,13 @@
     </div>
     <div class="form-group row mb-5">
       <div class="col-md-8 offset-md-4">
-        <button class="btn btn-primary" @click="createMusic">新規登録</button>
+        <button class="btn btn-light-accent" @click="createMusic">新規登録</button>
       </div>
     </div>
     <div class="list-group">
-      <a :href="'/music/' + music.id" class="list-group-item list-group-item-action" v-for="music in musics" :key="music.id">
+      <a :href="'/music/' + music.id" class="list-group-item list-group-item-action mb-1" v-for="music in musics" :key="music.id">
           <div class="d-flex w-100 flex-column">
-            <div class="mb-1 font-weight-bold">{{ music.title }}</div>
+            <div class="mb-1 font-weight-bold main-brand-title">{{ music.title }}</div>
             <small>　-{{ music.artist }}</small>
           </div>
       </a>

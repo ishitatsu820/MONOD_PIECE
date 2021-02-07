@@ -38549,7 +38549,10 @@ var render = function() {
       _c("div", { staticClass: "col-md-8 offset-md-4" }, [
         _c(
           "button",
-          { staticClass: "btn btn-primary", on: { click: _vm.createMusic } },
+          {
+            staticClass: "btn btn-light-accent",
+            on: { click: _vm.createMusic }
+          },
           [_vm._v("新規登録")]
         )
       ])
@@ -38563,14 +38566,16 @@ var render = function() {
           "a",
           {
             key: music.id,
-            staticClass: "list-group-item list-group-item-action",
+            staticClass: "list-group-item list-group-item-action mb-1",
             attrs: { href: "/music/" + music.id }
           },
           [
             _c("div", { staticClass: "d-flex w-100 flex-column" }, [
-              _c("div", { staticClass: "mb-1 font-weight-bold" }, [
-                _vm._v(_vm._s(music.title))
-              ]),
+              _c(
+                "div",
+                { staticClass: "mb-1 font-weight-bold main-brand-title" },
+                [_vm._v(_vm._s(music.title))]
+              ),
               _vm._v(" "),
               _c("small", [_vm._v("　-" + _vm._s(music.artist))])
             ])

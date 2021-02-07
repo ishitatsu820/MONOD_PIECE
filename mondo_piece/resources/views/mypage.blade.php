@@ -41,7 +41,7 @@
               <div class="row">
                 <a class="col-11" href="/music/{{ $music->id }}">
                   <div class="d-flex w-100 flex-column">
-                    <h5 class="mb-1">{{ $music->title }}</h5>
+                    <h5 class="mb-1 main-brand-title">{{ $music->title }}</h5>
                     <small>{{ $music->updated_at }}</small>
                   </div>
                   <p class="mb-1">{{ $music->lyric }}</p>
